@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>목록</title>
+</head>
+<body>
+    <h1 align="center">목록</h1>
+    <div style="float:right">
+        <a th:href="@{/user/login}">로그인</a> /
+        <a th:href="@{/user/signup}">회원가입</a>
+    </div>
+
+    <div>
+            <table border="1" cellspacing="0" width="100%">
+                <tr>
+                    <th>글 번호</th>
+                    <th>글 제목</th>
+                    <th>작성자</th>
+                    <th>날짜</th>
+                </tr>
+                <tr th:each="list :${list}">
+                    <td>[[${list.id}]]</td>
+                    <td><a th:href="@{/board/detail(board_id=${list.id})}">[[${list.title}]]</a></td>
+                    <td>[[${list.userId}]]</td>
+                    <td>[[${list.create_date}]]</td>
+                </tr>
+            </table>
+        <button th:onclick="|location.href='@{write}'|" style="float:right">글 작성</button>
+    </div>
+</body>
+</html>

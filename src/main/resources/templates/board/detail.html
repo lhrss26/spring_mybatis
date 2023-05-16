@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>글 보기</title>
+</head>
+<body>
+    <h1>글 보기</h1>
+ <!--   <form method="post"> -->
+        <div>
+            <table border="1" cellspacing="0" width="100%">
+                <tr>
+                    <th width="10%">제목</th>
+                    <td width="30%">[[${detail.title}]]</td>
+                    <th width="15%">작성자</th>
+                    <td width="20%">[[${detail.userId}]]</td>
+                    <th width="10%">날짜</th>
+                    <td width="15%">[[${detail.create_date}]]</td>
+                </tr>
+                <tr height="300">
+                    <td colspan="6">[[${detail.content}]]</td>
+
+                </tr>
+            </table>
+            <div align="center">
+            <button th:onclick="|location.href='@{update(board_id=${detail.id})}'|">글 수정</button>
+            <button th:onclick="|location.href='@{list}'|">목록</button>
+            <button th:onclick="|location.href='@{delete(board_id=${detail.id})}'|">삭제</button></div>
+        </div>
+<!--    </form> -->
+</body>
+</html>
